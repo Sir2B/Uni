@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+
+void swap (sometype x, sometype y)
+{
+
+}
+
+
+int main()
+{
+	cout << swap(a, b) << endl;
+
+}

@@ -1,0 +1,28 @@
+
+**** Build of configuration Release for project ckurs ****
+
+make all 
+Building target: ckurs
+Invoking: GCC C++ Linker
+g++  -o "ckurs"  ./a11.o ./a15.o   
+./a15.o: In function `main':
+a15.cpp:(.text.startup+0x0): multiple definition of `main'
+./a11.o:a11.cpp:(.text.startup+0x0): first defined here
+collect2: ld returned 1 exit status
+make: *** [ckurs] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Release for project ckurs ****
+
+make all 
+Building target: ckurs
+Invoking: GCC C++ Linker
+g++  -o "ckurs"  ./a11.o ./a15.o   
+./a15.o: In function `main':
+a15.cpp:(.text.startup+0x0): multiple definition of `main'
+./a11.o:a11.cpp:(.text.startup+0x0): first defined here
+collect2: ld returned 1 exit status
+make: *** [ckurs] Error 1
+
+**** Build Finished ****

@@ -1,0 +1,50 @@
+!SESSION 2014-03-11 14:52:16.702 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.7.0_51
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.cdt.core 1 0 2014-03-11 14:53:16.867
+!MESSAGE Indexed 'ckurs11' (0 sources, 76 headers) in 1.32 sec: 2,139 declarations; 2,375 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0.00%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2014-03-11 14:53:35.040
+!MESSAGE Indexed 'ckurs' (0 sources, 76 headers) in 0.64 sec: 2,139 declarations; 2,375 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0.00%)
+
+!ENTRY org.eclipse.cdt.dsf.ui 2 0 2014-03-11 15:41:46.989
+!MESSAGE Unable to locate file: libc-start.c
+
+!ENTRY org.eclipse.cdt.dsf.ui 2 0 2014-03-11 15:42:30.353
+!MESSAGE Unable to locate file: exit.c
+!SESSION 2014-03-12 09:38:46.792 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.7.0_51
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.core.resources 2 10035 2014-03-12 09:44:42.485
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.cdt.debug.core 4 104 2014-03-12 09:47:05.571
+!MESSAGE The program file specified in the launch configuration does not exist
+!STACK 0
+java.io.FileNotFoundException: /home/t/Tobias.Obermayer/workspace/ckurs/Release/ckurs not found
+	at org.eclipse.cdt.debug.core.CDebugUtils.verifyProgramPath(CDebugUtils.java:653)
+	at org.eclipse.cdt.debug.core.CDebugUtils.verifyProgramPath(CDebugUtils.java:669)
+	at org.eclipse.cdt.launch.internal.LocalCDILaunchDelegate.runLocalApplication(LocalCDILaunchDelegate.java:84)
+	at org.eclipse.cdt.launch.internal.LocalCDILaunchDelegate.launch(LocalCDILaunchDelegate.java:70)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:854)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:703)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:937)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1141)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SESSION 2014-03-12 12:49:42.821 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.7.0_51
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.core.resources 2 10035 2014-03-12 12:49:51.393
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
