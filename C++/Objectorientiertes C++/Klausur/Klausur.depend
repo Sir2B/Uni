@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1438344339 source:/home/t/Tobias.Obermayer/Programming/C++/Objectorientiertes C++/Klausur/main.cpp
+	<iostream>
+	"vector_iterator.cpp"
+	"shape-ex.cpp"
+
+1438344026 /home/t/Tobias.Obermayer/Programming/C++/Objectorientiertes C++/Klausur/vector_iterator.cpp
+	<vector>
+	<iostream>
+
+1438344411 /home/t/Tobias.Obermayer/Programming/C++/Objectorientiertes C++/Klausur/shape-ex.cpp
+	<iostream>
+	<vector>
+	<cstdlib>
+

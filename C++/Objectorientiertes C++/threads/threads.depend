@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1438259818 source:/home/t/Tobias.Obermayer/Programming/C++/Objectorientiertes C++/threads/main.cpp
+	<iostream>
+	<future>
+	<chrono>
+	<thread>
+

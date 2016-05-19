@@ -1,0 +1,17 @@
+from StatCalc import StatCalc
+import math
+import random
+
+stat = StatCalc()
+
+
+for i in range(100):
+	stat.enter(random.random())
+
+print stat.getMean()
+print stat.getStandardDeviation()
+print stat.getMin()
+print stat.getMax()
+
+f = open("asdfasd.txt","w/a/r")
+a = f.readlines()

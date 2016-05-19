@@ -1,0 +1,9 @@
+#Wed Mar 26 23:52:19 CET 2008
+eclipse.preferences.version=1
+encoding//gui/widgets.py=UTF-8
+encoding//gui/window.py=UTF-8
+encoding/constants.py=UTF-8
+encoding/double_pendulum.py=UTF-8
+encoding/ode.py=UTF-8
+encoding/simulation.py=UTF-8
+encoding/single_pendulum.py=UTF-8

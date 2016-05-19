@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1438078123 source:/home/t/Tobias.Obermayer/Programming/C++/Objectorientiertes C++/abstract_classes/src/Func.cpp
+	"Func.h"
+	<cmath>
+
+1438077773 /home/t/Tobias.Obermayer/Programming/C++/Objectorientiertes C++/abstract_classes/include/Func.h
+
+1438082581 source:/home/t/Tobias.Obermayer/Programming/C++/Objectorientiertes C++/abstract_classes/main.cpp
+	<iostream>
+	<cmath>
+	"Func.h"
+

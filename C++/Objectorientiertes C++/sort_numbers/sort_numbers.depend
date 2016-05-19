@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1438005325 source:/home/t/Tobias.Obermayer/Programming/C++/Objectorientiertes C++/sort_numbers/main.cpp
+	<iostream>
+	<fstream>
+	<string>
+	<vector>
+	<algorithm>
+	<stdlib.h>
+

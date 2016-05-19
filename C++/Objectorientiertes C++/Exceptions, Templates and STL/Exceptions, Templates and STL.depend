@@ -1,0 +1,24 @@
+# depslib dependency file v1.0
+1438172255 source:/home/t/Tobias.Obermayer/Programming/C++/Objectorientiertes C++/Exceptions, Templates and STL/main.cpp
+	<iostream>
+	"test1.cpp"
+	"quadratic_equation.cpp"
+	"template.cpp"
+	"template_class.cpp"
+
+1438163196 /home/t/Tobias.Obermayer/Programming/C++/Objectorientiertes C++/Exceptions, Templates and STL/test1.cpp
+	<iostream>
+
+1438164438 /home/t/Tobias.Obermayer/Programming/C++/Objectorientiertes C++/Exceptions, Templates and STL/quadratic_equation.cpp
+	<vector>
+	<iostream>
+	<cmath>
+	<stdexcept>
+
+1438166400 /home/t/Tobias.Obermayer/Programming/C++/Objectorientiertes C++/Exceptions, Templates and STL/template.cpp
+	<iostream>
+	<string>
+
+1438175542 /home/t/Tobias.Obermayer/Programming/C++/Objectorientiertes C++/Exceptions, Templates and STL/template_class.cpp
+	<iostream>
+

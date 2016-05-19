@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1437988622 source:/home/t/Tobias.Obermayer/Programming/C++/Objectorientiertes C++/hello world.cpp
+	"My3Vector.h"
+
+1437998792 source:/home/t/Tobias.Obermayer/Programming/C++/Objectorientiertes C++/src/My3Vector.cpp
+	"My3Vector.h"
+	<math.h>
+
+1437998773 /home/t/Tobias.Obermayer/Programming/C++/Objectorientiertes C++/include/My3Vector.h
+	<iostream>
+
+1437997060 source:/home/t/Tobias.Obermayer/Programming/C++/Objectorientiertes C++/Test_My3Vector.cpp
+	<iostream>
+	"My3Vector.h"
+

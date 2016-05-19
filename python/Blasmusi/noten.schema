@@ -1,0 +1,7 @@
+CREATE TABLE noten (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+Ordner TEXT,
+Nummer INTEGER,
+Stueckname TEXT,
+Instrument TEXT
+);
