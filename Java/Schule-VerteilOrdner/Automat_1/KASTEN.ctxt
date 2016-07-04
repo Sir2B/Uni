@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.params=
+comment0.target=KASTEN()
+comment1.params=e
+comment1.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment2.params=n
+comment2.target=int\ zufaelligeZahl(int)
+comment3.params=
+comment3.target=void\ zeichnesmilie()
+comment4.params=
+comment4.target=void\ zeichne()
+comment5.params=
+comment5.target=void\ fuelle()
+comment6.params=
+comment6.target=void\ blinke()
+comment7.params=automatischAnzahl
+comment7.target=void\ automatisch(int)
+numComments=8

@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=NEINNNNNNNNNNNNN()
+comment1.target=void\ zufallszahlen()
+comment10.target=void\ auto()
+comment2.target=void\ zahlen()
+comment3.params=a0\ a1\ a2\ a3\ a4\ a5
+comment3.target=void\ eigzahlen(int,\ int,\ int,\ int,\ int,\ int)
+comment4.target=void\ sortieren()
+comment5.target=void\ eigsortieren()
+comment6.target=void\ vergleich()
+comment7.target=void\ ausgeben()
+comment8.target=void\ lotto()
+comment9.params=anzahl
+comment9.target=void\ lottos(int)
+numComments=11

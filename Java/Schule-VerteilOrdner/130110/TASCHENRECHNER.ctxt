@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=TASCHENRECHNER()
+comment1.params=x\ y\ z
+comment1.target=double\ rechn(double,\ double,\ char)
+comment2.params=x\ y\ z
+comment2.target=double\ rechnen(double,\ double,\ String)
+numComments=3

@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=Anzahl4\ Anzahl5\ vx
+comment0.target=WOLKE(int,\ int,\ int)
+comment1.params=zeit
+comment1.target=void\ bewege(double)
+comment2.params=xRichtungR\ xRichtungH
+comment2.target=void\ vxae(int,\ int)
+numComments=3

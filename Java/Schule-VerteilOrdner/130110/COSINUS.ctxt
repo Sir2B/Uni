@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.target=COSINUS()
+comment1.params=x
+comment1.target=double\ cos(double)
+numComments=2

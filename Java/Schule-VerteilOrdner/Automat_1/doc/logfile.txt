@@ -1,0 +1,32 @@
+Project documentation
+<---- javadoc command: ---->
+C:\Programme\Java\jdk1.6.0_06\bin\javadoc.exe
+-sourcepath
+\\ADS\schueler$\home\OBERMAYERT19\##verteil##\Automat_1
+-classpath
+C:\BlueJ\lib\bluejcore.jar;C:\BlueJ\lib\junit.jar;\\ADS\schueler$\home\OBERMAYERT19\##verteil##\Automat_1
+-d
+\\ADS\schueler$\home\OBERMAYERT19\##verteil##\Automat_1\doc
+-source
+1.6
+-doctitle
+Automat_1
+-windowtitle
+Automat_1
+-link
+http://java.sun.com/j2se/1.5/docs/api/
+-author
+-version
+-nodeprecated
+-package
+\\ADS\schueler$\home\OBERMAYERT19\##verteil##\Automat_1/KASTEN.java
+<---- end of javadoc command ---->
+Creating destination directory: "\ADS\schueler$\home\OBERMAYERT19\##verteil##\Automat_1\doc\"
+Loading source file \\ADS\schueler$\home\OBERMAYERT19\##verteil##\Automat_1/KASTEN.java...
+Constructing Javadoc information...
+javadoc: warning - Error fetching URL: http://java.sun.com/j2se/1.5/docs/api/package-list
+Standard Doclet version 1.6.0_06
+Building tree for all the packages and classes...
+javadoc: error - Unable to create directory \ADS\schueler$\home\OBERMAYERT19\##verteil##\Automat_1\doc\
+1 error
+1 warning

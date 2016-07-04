@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.target=MAL()
+comment1.params=x\ y
+comment1.target=double\ mal(double,\ double)
+numComments=2

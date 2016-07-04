@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=Dreieck()
+comment1.target=void\ sichtbarMachen()
+comment10.params=strecke
+comment10.target=void\ bewegeLangsamVertikal(int)
+comment11.params=neueHoehe\ neueLaenge
+comment11.target=void\ groesseSetzen(int,\ int)
+comment12.params=neueFarbe
+comment12.target=void\ fuellfarbeSetzen(String)
+comment13.target=void\ zeichnen()
+comment14.target=void\ loeschen()
+comment2.target=void\ unsichtbarMachen()
+comment3.target=void\ nachRechts()
+comment4.target=void\ nachLinks()
+comment5.target=void\ nachOben()
+comment6.target=void\ nachUnten()
+comment7.params=strecke
+comment7.target=void\ bewegeHorizontal(int)
+comment8.params=strecke
+comment8.target=void\ bewegeVertikal(int)
+comment9.params=strecke
+comment9.target=void\ bewegeLangsamHorizontal(int)
+numComments=15

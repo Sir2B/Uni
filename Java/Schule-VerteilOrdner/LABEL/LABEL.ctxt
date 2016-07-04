@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.target=LABEL()
+comment1.params=text
+comment1.target=void\ LabelTextAendern(String)
+numComments=2

@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.target=TANGENS()
+comment1.params=x
+comment1.target=double\ tan(double)
+numComments=2

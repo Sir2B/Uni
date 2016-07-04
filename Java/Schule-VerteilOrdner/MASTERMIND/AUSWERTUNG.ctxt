@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=AUSWERTUNG()
+comment1.params=ilsg
+comment1.target=void\ InpLsg([)
+comment2.params=ieing
+comment2.target=void\ Inpeing([)
+comment3.target=void\ zufallsbefuellung()
+comment4.target=void\ auswerten()
+numComments=5

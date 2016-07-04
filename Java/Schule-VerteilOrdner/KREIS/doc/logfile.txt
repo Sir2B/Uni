@@ -1,0 +1,64 @@
+Project documentation
+<---- javadoc command: ---->
+c:\programme\java\jdk1.5.0_06\bin\javadoc.exe
+-sourcepath
+C:\Schule\Informatik\AK Inf\10\inf10_2407\Zeichnen1
+-classpath
+C:\Programme\BlueJ\lib\junit.jar
+-d
+C:\Schule\Informatik\AK Inf\10\inf10_2407\Zeichnen1\doc
+-source
+1.5
+-doctitle
+Zeichnen1
+-windowtitle
+Zeichnen1
+-author
+-version
+-nodeprecated
+-package
+C:\Schule\Informatik\AK Inf\10\inf10_2407\Zeichnen1/ZEICHENFENSTER.java
+C:\Schule\Informatik\AK Inf\10\inf10_2407\Zeichnen1/KASTEN.java
+<---- end of javadoc command ---->
+Loading source file C:\Schule\Informatik\AK Inf\10\inf10_2407\Zeichnen1/ZEICHENFENSTER.java...
+Loading source file C:\Schule\Informatik\AK Inf\10\inf10_2407\Zeichnen1/KASTEN.java...
+Constructing Javadoc information...
+Standard Doclet version 1.5.0_06
+Building tree for all the packages and classes...
+Generating C:\Schule\Informatik\AK Inf\10\inf10_2407\Zeichnen1\doc\KASTEN.html...
+Generating C:\Schule\Informatik\AK Inf\10\inf10_2407\Zeichnen1\doc\ZEICHENFENSTER.html...
+C:\Schule\Informatik\AK Inf\10\inf10_2407\Zeichnen1/ZEICHENFENSTER.java:329: warning - @param argument "x1,y1" is not a parameter name.
+C:\Schule\Informatik\AK Inf\10\inf10_2407\Zeichnen1/ZEICHENFENSTER.java:329: warning - @param argument "x2,y2" is not a parameter name.
+C:\Schule\Informatik\AK Inf\10\inf10_2407\Zeichnen1/ZEICHENFENSTER.java:329: warning - @param argument "x3,y3" is not a parameter name.
+C:\Schule\Informatik\AK Inf\10\inf10_2407\Zeichnen1/ZEICHENFENSTER.java:313: warning - @param argument "x1,y1" is not a parameter name.
+C:\Schule\Informatik\AK Inf\10\inf10_2407\Zeichnen1/ZEICHENFENSTER.java:313: warning - @param argument "x2,y2" is not a parameter name.
+C:\Schule\Informatik\AK Inf\10\inf10_2407\Zeichnen1/ZEICHENFENSTER.java:313: warning - @param argument "x3,y3" is not a parameter name.
+C:\Schule\Informatik\AK Inf\10\inf10_2407\Zeichnen1/ZEICHENFENSTER.java:265: warning - @param argument "xPos,yPos" is not a parameter name.
+C:\Schule\Informatik\AK Inf\10\inf10_2407\Zeichnen1/ZEICHENFENSTER.java:265: warning - @param argument "breite," is not a parameter name.
+C:\Schule\Informatik\AK Inf\10\inf10_2407\Zeichnen1/ZEICHENFENSTER.java:250: warning - @param argument "xPos,yPos" is not a parameter name.
+C:\Schule\Informatik\AK Inf\10\inf10_2407\Zeichnen1/ZEICHENFENSTER.java:250: warning - @param argument "breite," is not a parameter name.
+C:\Schule\Informatik\AK Inf\10\inf10_2407\Zeichnen1/ZEICHENFENSTER.java:344: warning - @param argument "x1,y1" is not a parameter name.
+C:\Schule\Informatik\AK Inf\10\inf10_2407\Zeichnen1/ZEICHENFENSTER.java:344: warning - @param argument "x2,y2" is not a parameter name.
+C:\Schule\Informatik\AK Inf\10\inf10_2407\Zeichnen1/ZEICHENFENSTER.java:344: warning - @param argument "x3,y3" is not a parameter name.
+C:\Schule\Informatik\AK Inf\10\inf10_2407\Zeichnen1/ZEICHENFENSTER.java:279: warning - @param argument "xPos,yPos" is not a parameter name.
+C:\Schule\Informatik\AK Inf\10\inf10_2407\Zeichnen1/ZEICHENFENSTER.java:279: warning - @param argument "breite," is not a parameter name.
+C:\Schule\Informatik\AK Inf\10\inf10_2407\Zeichnen1/ZEICHENFENSTER.java:299: warning - @param argument "x1,y1" is not a parameter name.
+C:\Schule\Informatik\AK Inf\10\inf10_2407\Zeichnen1/ZEICHENFENSTER.java:299: warning - @param argument "x2,y2" is not a parameter name.
+C:\Schule\Informatik\AK Inf\10\inf10_2407\Zeichnen1/ZEICHENFENSTER.java:299: warning - @param argument "x3,y3" is not a parameter name.
+C:\Schule\Informatik\AK Inf\10\inf10_2407\Zeichnen1/ZEICHENFENSTER.java:236: warning - @param argument "xPos,yPos" is not a parameter name.
+C:\Schule\Informatik\AK Inf\10\inf10_2407\Zeichnen1/ZEICHENFENSTER.java:236: warning - @param argument "breite," is not a parameter name.
+Generating C:\Schule\Informatik\AK Inf\10\inf10_2407\Zeichnen1\doc\package-frame.html...
+Generating C:\Schule\Informatik\AK Inf\10\inf10_2407\Zeichnen1\doc\package-summary.html...
+Generating C:\Schule\Informatik\AK Inf\10\inf10_2407\Zeichnen1\doc\package-tree.html...
+Generating C:\Schule\Informatik\AK Inf\10\inf10_2407\Zeichnen1\doc\constant-values.html...
+Building index for all the packages and classes...
+Generating C:\Schule\Informatik\AK Inf\10\inf10_2407\Zeichnen1\doc\overview-tree.html...
+Generating C:\Schule\Informatik\AK Inf\10\inf10_2407\Zeichnen1\doc\index-all.html...
+Building index for all classes...
+Generating C:\Schule\Informatik\AK Inf\10\inf10_2407\Zeichnen1\doc\allclasses-frame.html...
+Generating C:\Schule\Informatik\AK Inf\10\inf10_2407\Zeichnen1\doc\allclasses-noframe.html...
+Generating C:\Schule\Informatik\AK Inf\10\inf10_2407\Zeichnen1\doc\index.html...
+Generating C:\Schule\Informatik\AK Inf\10\inf10_2407\Zeichnen1\doc\help-doc.html...
+Generating C:\Schule\Informatik\AK Inf\10\inf10_2407\Zeichnen1\doc\stylesheet.css...
+20 warnings
+try to open: C:\Schule\Informatik\AK Inf\10\inf10_2407\Zeichnen1\doc\index.html

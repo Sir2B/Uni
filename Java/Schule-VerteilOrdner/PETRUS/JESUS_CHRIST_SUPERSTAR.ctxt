@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=
+comment0.target=JESUS_CHRIST_SUPERSTAR()
+comment1.params=e
+comment1.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment2.params=e
+comment2.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment3.params=
+comment3.target=void\ startit_du_nulla()
+comment4.params=
+comment4.target=void\ stopitnow()
+comment5.params=xRichtungR\ xRichtungH
+comment5.target=void\ geschwindigkeit(int,\ int)
+comment6.params=anzahlH\ anzahlR\ xRichtung
+comment6.target=void\ gib_moi_mehra_rengdropfa_her(int,\ int,\ int)
+numComments=7

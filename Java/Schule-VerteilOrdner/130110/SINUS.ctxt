@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.target=SINUS()
+comment1.params=x
+comment1.target=double\ sin(double)
+numComments=2

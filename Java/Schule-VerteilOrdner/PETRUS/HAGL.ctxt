@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.params=xStart\ yStart\ RadiusStart\ vxi
+comment0.target=HAGL(double,\ double,\ int,\ int)
+comment1.target=void\ zeichne()
+comment2.params=zeit
+comment2.target=void\ bewege(double)
+comment3.params=vxi
+comment3.target=void\ vxaenderung(int)
+numComments=4
