@@ -1,4 +1,6 @@
 *.kate-swp
+*.DS_Store
+*.out
 *.pyc
 _trial_temp*
 dropin.cache
