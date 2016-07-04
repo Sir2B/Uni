@@ -9,14 +9,14 @@ b = [-2.5, 3.8, 0.4]
 # Skalarprodukt
 Skalarprodukt = 0
 for i in range(len(a)):
-	Skalarprodukt += a[i]*b[i]
-	
+    Skalarprodukt += a[i]*b[i]
+    
 print "Skalarprodukt von", a ,"und", b, "ist", Skalarprodukt
 
 # Vektorprodukt
 Vektorprodukt = [0,0,0]
 for i in range(3):
-	Vektorprodukt[i]=a[((i+1)%3)]*b[((i+2)%3)]-a[((i+2)%3)]*b[((i+1)%3)]
+    Vektorprodukt[i]=a[((i+1)%3)]*b[((i+2)%3)]-a[((i+2)%3)]*b[((i+1)%3)]
 
 print "Vektorprodukt von", a ,"und", b, "ist", Vektorprodukt
 
@@ -28,9 +28,9 @@ D = [ [ 0.40, -0.68, -0.68 ], [ 0.65, -0.75, 0.23 ], [ 0.52, 0.51, 0.31 ] ]
 M = [[0]*len(C) for i in range(len(D))]
 
 for i in range(len(C)):
-	for j in range(len(D)):
-		for n in range(len(C)):
-			M[i][j] += C[i][n] * D[n][j]
-			
+    for j in range(len(D)):
+        for n in range(len(C)):
+            M[i][j] += C[i][n] * D[n][j]
+            
 print M
-		
+        

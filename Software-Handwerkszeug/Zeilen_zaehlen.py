@@ -9,13 +9,13 @@ print "Anzahl Zeilen:", len(zeilen)
 
 anzahl_woerter= 0
 for zeile in zeilen:
-	anzahl_woerter += len(zeile.split(' '))
+    anzahl_woerter += len(zeile.split(' '))
 
 print "Anzahl Wörter:", anzahl_woerter
 
 anzahl_zeichen = 0
 for zeile in zeilen:
-	anzahl_zeichen += len(zeile)
+    anzahl_zeichen += len(zeile)
 
 print "Anzahl Zeichen:", anzahl_zeichen
 
