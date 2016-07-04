@@ -1,0 +1,5 @@
+cmake_minimum_required (VERSION 2.6)
+project (Tutorial)
+add_library(ComplexFunctions cmpl.cpp cmpl2.cpp)
+add_executable(Tutorial main.cpp)
+target_link_libraries (Tutorial ComplexFunctions)
