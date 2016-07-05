@@ -5,6 +5,10 @@
 _trial_temp*
 dropin.cache
 docs/build
+bin/
+obj/
+Debug/
+Release/
 *egg-info
 .tox
 venv
