@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1398463914 source:c:\users\tobias\documents\programmieren\c++\numerik\numerik\main.cpp
+	<iostream>
+	<iomanip>
+	<cmath>
+
+1398464500 source:c:\users\tobias\documents\programmieren\c++\numerik\numerik\blatt3aufgabe2.cpp
+	<iostream>
+	<iomanip>
+	<cmath>
+
