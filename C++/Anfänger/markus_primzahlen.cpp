@@ -1,76 +1,48 @@
-
- /*
- Erstellen Sie ein Programm, das testet ob eine gegebene Zahl eine Primzahl ist.
- */
-#include <stdio.h>
-#include <string.h>
 #include <iostream>
-#include <stdlib.h>
+#include <vector>
+#include <cmath>
+#include <time.h>
 
+using namespace std;
 
+int main()
+{
+	int eingabe;
+	cout << "Eingabe: " << endl;
+	cin >> eingabe;
+	clock_t start = clock();
+	double wurzl;
+	vector <int> prim;
 
- using namespace std;
+	int i,n;
+	bool isprim=true;
 
- int main ()
- {
-    int p,zp(0),b(1);
-    cout << "Gib eine Zahl ein: ";
-    cin >> p;
-    int i1;
-    int i2;
+	if (eingabe>2)
+	{
+		prim.push_back(2);
+	}
+	else
+		isprim=false;
+	for (i=3;i<eingabe;i+=2)
+	{
+		wurzl = (int)sqrt(i);
+		for (n=1;n<prim.size() && wurzl>=prim[n];n++)
+		{
+			if(i%prim[n]== 0)
+			{
+				isprim=false;
+				break;
+			}
+		}
+		if (isprim)
+		{
+			prim.push_back(i);
+		}
+		else
+			isprim = true;
+	}
+	clock_t ende = clock();
 
-    struct liste
-    {
-        int primzahl;
-        struct liste *next;
-    };
-
-    const struct liste* start;
-    struct liste ppuffer;
-    struct liste primzahlstruct;
-    primzahlstruct.next = NULL;
-
-    start = &primzahlstruct;
-
-    for (i1=2; i1<p; i1++)
-    {
-    for (i2=2; i2<i1; i2++)
-     {
-     if ( i1%i2 == 0)
-     {
-        //cout << p << " ist keine Primzahl";
-        b=0;
-        break;
-     }
-
-     }
-     if (b)
-     zp++;
-     ppuffer.primzahl = i1;
-     ppuffer.next = (struct liste*) malloc ( sizeof(struct liste));
-     primzahlstruct.next = &ppuffer;
-     &primzahlstruct = &ppuffer;
-     ppuffer.next = NULL;
-
-     b=1;
-     //cout << p << " ist eine Primzahl";
-
-    }
-
-    cout << endl << "Dazwischen liegen: " << zp << " Primzahlen." << endl;
-
-
-
-    for (i2=2; i2<p; i2++)
-     {
-     if ( p%i2 == 0)
-     {
-        cout << p << " ist keine Primzahl";
-        return 0;
-     }
-     }
-     cout << p << " ist eine Primzahl";
-
-    return 0;
-
- }
+	cout << "Es sind " << prim.size() << " Primzahlen kleiner als " << eingabe << endl
+			<< "Das hat " << (double)((double)ende-(double)start)/ (double)CLOCKS_PER_SEC * 1000 << " ms gedauert" << endl;
+}
