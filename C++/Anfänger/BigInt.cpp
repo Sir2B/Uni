@@ -17,7 +17,7 @@
        number[ndig++] = c - '0';
      }
    }
- }    
+ }
  BigInt BigInt::operator + (const BigInt & x ) const
  {
    BigInt t;
@@ -39,7 +39,7 @@
 
 std::ostream & operator << ( std::ostream &s, const BigInt &x)
 {
-	
+	//print();
 }
 
  void BigInt::print() const
@@ -48,5 +48,5 @@ std::ostream & operator << ( std::ostream &s, const BigInt &x)
        cout << number[i-1];
        }
      cout << endl;
- } 
+ }
 
