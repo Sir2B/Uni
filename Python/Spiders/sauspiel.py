@@ -13,9 +13,10 @@ class SauspielSpider(scrapy.Spider):
     start_urls = ["https://www.sauspiel.de/login"]
 
     def parse(self, response):
+        login, password = self.get_credentials()
         return scrapy.FormRequest.from_response(
             response,
-            formdata={'login': 'Sir2B', 'password': 'QB87Bvd^FvGWH3h7w*'},
+            formdata={'login': login, 'password': password},
             callback=self.after_login
         )
 
@@ -40,6 +41,20 @@ class SauspielSpider(scrapy.Spider):
                 if games_count == 0:
                     games_count = text.split()[0]
         self.append_stat(points + games_count + '\n', "stats.txt")
+ 
+    @staticmethod
+    def get_credentials():
+        login = ""
+        password = ""
+        with open('credentials', 'r') as f:
+            lines = f.read().splitlines() 
+            for line in lines:
+                l = line.split()
+                if 'login' in l[0]:
+                    login = l[1]
+                elif 'password' in l[0]:
+                    password = l[1]
+        return login, password
 
     @staticmethod
     def save_page(response, filename):
