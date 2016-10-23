@@ -1,0 +1,9 @@
+CREATE TABLE video (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+Title TEXT,
+Year INTEGER,
+Filepath TEXT,
+Release TEXT,
+Language TEXT,
+Cover BLOB
+);
