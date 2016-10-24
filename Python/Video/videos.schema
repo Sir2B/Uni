@@ -3,7 +3,7 @@ id INTEGER PRIMARY KEY AUTOINCREMENT,
 Title TEXT,
 Year INTEGER,
 Filepath TEXT,
-Release TEXT,
+ReleaseName TEXT,
 Language TEXT,
 Cover BLOB
 );
