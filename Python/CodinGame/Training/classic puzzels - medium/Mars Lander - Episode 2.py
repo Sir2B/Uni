@@ -1,15 +1,10 @@
 import sys
 import math
 
-# Auto-generated code below aims at helping you parse
-# the standard input according to the problem statement.
-
-surface_n = int(raw_input())  # the number of points used to draw the surface of Mars.
+surface_n = int(raw_input()) 
 previous_y = None
 previous_x = None
 for i in xrange(surface_n):
-    # land_x: X coordinate of a surface point. (0 to 6999)
-    # land_y: Y coordinate of a surface point. By linking all the points together in a sequential fashion, you form the surface of Mars.
     land_x, land_y = [int(j) for j in raw_input().split()]
     print >> sys.stderr, land_x, land_y
     if land_y == previous_y:
@@ -43,27 +38,17 @@ while True:
             angel = -30
         elif h_speed > -30 and diff>0:
             angel = 30
-        if abs(h_speed) >= 40:
+        if abs(h_speed) >= 50:
             angel = 15*h_speed/abs(h_speed)
         if abs(diff) < 1500 and abs(h_speed) >= 20:
             angel = 15*h_speed/abs(h_speed)
             speed = 3
     else:
-        if v_speed < -40:
-            power = 4
-        elif v_speed < -10 and height<1000:
-            power = 4
-        elif abs(h_speed) > 30:
+        if v_speed < -40 or (v_speed < -10 and height<1000) or abs(h_speed) > 30:
             power = 4
         else: 
             power = 2
-            
-        if diff>300:
-            angel = 15
-        elif diff<-300:
-            angel = -15
-        else:
-            angel = 0
+        
         if h_speed < -20:
             angel = -70
         elif h_speed > 20:
@@ -71,12 +56,7 @@ while True:
     if v_speed <= -40:
         angel = 0
     
-    # Write an action using print
-    # To debug: print >> sys.stderr, "Debug messages..."
-    
-
-
-    if height < 250:
+    if height < 250 and (landing_x[0] < x < landing_x[1]):
         angel = 0
 
     # rotate power. rotate is the desired rotation angle. power is the desired thrust power.
