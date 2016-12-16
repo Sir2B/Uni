@@ -1,4 +1,3 @@
-from __future__ import print_function
 import sys
 import math
 
@@ -13,7 +12,7 @@ def ident(mystring):
     ident_n = 0
     result = ""
     string_started = False
-    is_new_line = False
+    is_new_line = True
     for char in mystring:
         if char == "'":
             string_started = not string_started
@@ -44,11 +43,7 @@ def ident(mystring):
                         result += ident_n * ' '
                         is_new_line = False
                     result += char
-                
-                
     return result
-        
-        
 
 n = int(raw_input())
 intend = 0
@@ -59,5 +54,4 @@ for i in xrange(n):
     mystring += cgxline
 
 mystring = ident(mystring)
-#mystring = mystring.replace('\n\n', '\n')
-print(mystring.strip())
+print mystring
