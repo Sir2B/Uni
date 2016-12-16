@@ -19,8 +19,9 @@ def can_go(obstacle, position):
 
 
 def remove_obstacle(position):
-    global bender_map, map_changed
-    map_changed = True
+    global bender_map, positions
+    positions.clear()
+    
     line = list(bender_map[position[1]])
     line[position[0]] = " "
     bender_map[position[1]] = "".join(line)
@@ -33,16 +34,16 @@ def teleport_from(position):
             bender_pos = t
 
 
-def is_loop(pose):
-    global positions, map_changed
-    posi, diri, breakeri, changed = pose
+def is_loop(pos):
+    global positions
+    posi, diri, breakeri, n_dir = pos
     if posi in positions:
-        posi2, diri2, breakeri2, changed2 = positions[posi]
-        if changed or changed2 or diri2 != diri or breakeri != breakeri2:
-            return False
-        return True
+        posi2, diri2, breakeri2, n_dir2 = positions[posi]
+        if diri2 == diri and breakeri == breakeri2 and n_dir == n_dir2:
+            return True
+        return False
     else:
-        positions[posi] = (diri, breakeri, changed)
+        positions[posi] = (diri, breakeri, n_dir)
         return False
 
 
@@ -77,7 +78,6 @@ teleports = []
 bender_dir = "SOUTH"
 breaker_mode = False
 loop = False
-map_changed = False
 l, c = [int(i) for i in raw_input().split()]
 for y in xrange(l):
     row = raw_input()
@@ -104,7 +104,7 @@ while running:
         # print >> sys.stderr, "Obs: {0}".format(next_obs)
         directions.append(bender_dir)
 
-        pos = (bender_pos, bender_dir, breaker_mode, map_changed)
+        pos = (bender_pos, bender_dir, breaker_mode, next_direction)
 
         if is_loop(pos):
             running = False
