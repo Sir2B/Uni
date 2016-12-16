@@ -65,7 +65,7 @@ while len(cards_p1) != 0 and len(cards_p2) != 0:
     winner.append(card_p1)
     winner.append(card_p2)
 
-if len(cards_p1) == 0 and len(card_p2) == 0:
+if len(cards_p1) == 0 and len(cards_p2) == 0:
     print "PAT"
 else:
     winner = 2 if len(cards_p1) == 0 else 1
