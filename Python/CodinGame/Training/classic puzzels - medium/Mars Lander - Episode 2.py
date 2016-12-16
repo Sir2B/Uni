@@ -54,10 +54,9 @@ while True:
 
         if abs(h_speed) >= 50:
             angel = 15*h_speed/abs(h_speed)
+            
         if abs(diff) < 1500 and abs(h_speed) >= 20:
             angel = 15*h_speed/abs(h_speed)
-            speed = 3
-
 
     if v_speed <= -40:
         angel = 0
