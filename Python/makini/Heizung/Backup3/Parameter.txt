@@ -1,0 +1,11 @@
+Abtastzeit=2
+VorlaufKeller=25
+RuecklaufKeller=13
+Zyklenzeit=5
+TempZeitKoeff=10
+TemperaturRaumSollTag=21
+TemperaturRaumSollNacht=18
+TagBeginn=5:30
+TagEnde=24:00
+HeizungVorlaufSollSteigung=1
+HeizungVorlaufTemperaturSollNotfall=50

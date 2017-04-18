@@ -1,0 +1,61 @@
+#!/usr/bin/env python
+# xmlrpc_client.py -- A simple XML-RPC client of the calculator server.
+
+import xmlrpclib
+from threading import Thread
+import threading
+import time
+
+class ThreadedPiClient(Thread):
+    def __init__(self, ergebnisliste, iterations, name='piClient'):
+        Thread.__init__(self, name=name)
+        self.ergebnisListe = ergebnisliste
+        self.iterations = iterations
+
+    def run(self):
+        print 'New Server!'
+        prx = NewPiClient()
+        self.ergebnisListe.threadAppend(prx.calcPi(self.iterations))
+
+def NewPiClient():
+    return xmlrpclib.ServerProxy('http://localhost:7071', allow_none=True, verbose=False)
+
+
+class ErgebnisListe(list):
+    lck = threading.Lock()
+    def threadAppend(self,x):
+        self.lck.acquire()
+        self.append(x)
+        print 'appended: {zahl}'.format(zahl=x)
+        self.lck.release()
+
+CLIENT_COUNT = 2000
+SERVER_ITERATIONS = 50000000
+
+def main():
+    ergebnisListe = ErgebnisListe()
+    threadList = []
+    for client in range(CLIENT_COUNT):
+        threadList.append(ThreadedPiClient(ergebnisListe, SERVER_ITERATIONS))
+    for client in threadList:
+        client.run()
+    while True:
+        print str(mean(ergebnisListe))
+        time.sleep(1)
+
+def mean(inputListe):
+    sum = 0
+    length = len(inputListe)
+    for i in inputListe:
+        i = float(i)
+        sum += i
+    if length > 0:
+        return sum/length
+    else:
+        return 0
+
+if __name__ == '__main__':
+    try:
+        main()
+    except KeyboardInterrupt:
+        exit()

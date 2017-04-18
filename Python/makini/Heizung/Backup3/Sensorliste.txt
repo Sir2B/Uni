@@ -1,0 +1,15 @@
+SensorHygieneOben
+SensorHygieneMitte
+SensorHygieneUnten
+SensorPufferKellerOben
+SensorPufferKellerMitte
+SensorPufferKellerUnten
+SensorPufferHeizraumOben
+SensorPufferHeizraumMitte
+SensorPufferHeizraumUnten
+SensorAussentemperatur
+SensorVorlaufKeller
+SensorHeizungsRuecklaufHeizkreis1
+SensorVorlaufHeizraum
+SensorRuecklaufHeizraum
+SensorTemperaturMischerKeller

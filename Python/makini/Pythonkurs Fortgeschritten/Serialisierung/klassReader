@@ -1,0 +1,10 @@
+from cPickle import load
+#from sourceKlass import Klasse1
+
+with open('pickleSource', 'rb') as datei:
+    Klasse1 = load(datei)
+    klasse1 = load(datei)
+
+
+print klasse1.x
+print klasse1.y

@@ -1,0 +1,1 @@
+KeyError('TagEnde',)In MischerKeller.py ausgelöst; Datum: 16.10.2014 19:23:33

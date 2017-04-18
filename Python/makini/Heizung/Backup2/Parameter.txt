@@ -1,0 +1,3 @@
+Abtastzeit=2
+VorlaufKeller=23
+RuecklaufKeller=13

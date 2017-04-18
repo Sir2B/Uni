@@ -1,0 +1,14 @@
+(dp1
+S'/sys/bus/w1/devices/28-00044e75d2ff/w1_slave'
+p2
+S'SensorTemperaturMischerKeller'
+p3
+sS'/sys/bus/w1/devices/28-00044a21bcff/w1_slave'
+p4
+S'SensorPufferKellerUnten'
+p5
+sS'/sys/bus/w1/devices/28-00044e75daff/w1_slave'
+p6
+S'SensorAussentemperatur'
+p7
+s.
