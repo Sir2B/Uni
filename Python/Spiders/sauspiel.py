@@ -1,19 +1,34 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import matplotlib
+# Force matplotlib to not use any Xwindows backend.
+matplotlib.use('Agg')
+
 import scrapy
 from scrapy.crawler import CrawlerProcess
 import subprocess
 import pylab
+import os
+import sys
+import time
+import logging
+from scrapy.utils.log import configure_logging
+
+
 
 
 class SauspielSpider(scrapy.Spider):
     name = "sauspiel"
     allowed_domains = ["sauspiel.de"]
     start_urls = ["https://www.sauspiel.de/login"]
+    def __init__(self):
+        logging.getLogger('scrapy').setLevel(logging.WARNING)
+        logging.getLogger('scrapy').propagate = False
 
     def parse(self, response):
         login, password = self.get_credentials()
+        self.save_page(response, 'before_login.html')
         return scrapy.FormRequest.from_response(
             response,
             formdata={'login': login, 'password': password},
@@ -33,15 +48,16 @@ class SauspielSpider(scrapy.Spider):
         self.save_page(response, 'profil.html')
         points = 0
         games_count = 0
-        for sel in response.selector.xpath('//ul/li[@class="profile-stats__list-item"]').xpath('text()'):
+        for sel in response.selector.xpath('//div[@id="profil_stats_punkte"]').xpath('//ul/li').xpath('text()'):
             text = sel.extract().encode('utf-8')
             if 'Momentan bei P' in text:
-                points = text.split()[3]
+                points = text.split()[3][:-1]
             if 'insgesamt, davon' in text:
                 if games_count == 0:
                     games_count = text.split()[0]
-        self.append_stat(points + games_count + '\n', "stats.txt")
- 
+	self.logger.info("Got data: {0} {1}".format(points, games_count))
+        self.append_stat("{},{},{}\n".format(points, games_count, self.get_actual_time()), "stats.txt")
+
     @staticmethod
     def get_credentials():
         login = ""
@@ -62,33 +78,58 @@ class SauspielSpider(scrapy.Spider):
         with open(filename, 'wb') as f:
             f.write(response.body)
 
-    @staticmethod
-    def append_stat(text, filename):
-        line = subprocess.check_output(['tail', '-1', filename])
-        if text != line:
+    def append_stat(self, text, filename):
+        line = subprocess.check_output(['tail', '-1', self.absolut_path(filename)])
+        if not self.are_values_equal(line, text):
             with open(filename, 'a') as f:
                 f.write(text)
-            draw_plot()
+            self.draw_plot()
 
+    def get_actual_time(self):
+        return time.strftime("%Y-%m-%d,%H:%M:%S", time.localtime())
+
+    def draw_plot(self):
+        self.logger.info("Save the Plot to file")
+        data_filename = "stats.txt"
+        plot_filename = "plot.png"
+        data = pylab.loadtxt(self.absolut_path(data_filename) , delimiter=',', dtype=int)
+        self.logger.info(data)
+        y_data = data[:, 0]
+        x_data = data[:, 1]
+        pylab.plot(x_data, y_data, '-')
+        # pylab.show()
+        pylab.savefig(self.absolut_path(plot_filename))
+        # pylab.legend()
+        # pylab.title("Title of Plot")
+        # pylab.xlabel("X Axis Label")
+        # pylab.ylabel("Y Axis Label")
+        pylab.close()
+
+    @staticmethod
+    def absolut_path(filename):
+        return os.path.join(os.getcwd(), filename)
+
+    @staticmethod
+    def are_values_equal(line1, line2):
+        line1_array = line1.split(',')
+        line2_array = line2.split(',')
+        if line1_array[0] != line2_array[0]:
+            return False
+        if line2_array[1] != line2_array[1]:
+            return False
+        return True
+
+
+os.chdir('/home/pi/sauspiel/')
+configure_logging(settings=None, install_root_handler=False)
 
 process = CrawlerProcess({
     'USER_AGENT': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)'
 })
 
 process.crawl(SauspielSpider)
+
 process.start()
 
 
-def draw_plot():
-    filename = "stats.txt"
-    data = pylab.loadtxt(filename, delimiter=',', dtype=int)
-    y_data = data[:, 0]
-    x_data = data[:, 1]
-    pylab.plot(x_data, y_data, '-o')
-    # pylab.show()
-    pylab.savefig('plot.png')
-    # pylab.legend()
-    # pylab.title("Title of Plot")
-    # pylab.xlabel("X Axis Label")
-    # pylab.ylabel("Y Axis Label")
-    pylab.close()
+
