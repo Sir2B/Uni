@@ -16,8 +16,6 @@ import logging
 from scrapy.utils.log import configure_logging
 
 
-
-
 class SauspielSpider(scrapy.Spider):
     name = "sauspiel"
     allowed_domains = ["sauspiel.de"]
