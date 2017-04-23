@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import matplotlib
-# Force matplotlib to not use any Xwindows backend.
-matplotlib.use('Agg')
+# import matplotlib
+# # Force matplotlib to not use any Xwindows backend.
+# matplotlib.use('Agg')
 
 import scrapy
 from scrapy.crawler import CrawlerProcess
@@ -81,27 +81,27 @@ class SauspielSpider(scrapy.Spider):
         if not self.are_values_equal(line, text):
             with open(filename, 'a') as f:
                 f.write(text)
-            self.draw_plot()
+            # self.draw_plot()
 
     def get_actual_time(self):
         return time.strftime("%Y-%m-%d,%H:%M:%S", time.localtime())
 
-    def draw_plot(self):
-        self.logger.info("Save the Plot to file")
-        data_filename = "stats.txt"
-        plot_filename = "plot.png"
-        data = pylab.loadtxt(self.absolut_path(data_filename) , delimiter=',', dtype=int)
-        self.logger.info(data)
-        y_data = data[:, 0]
-        x_data = data[:, 1]
-        pylab.plot(x_data, y_data, '-')
-        # pylab.show()
-        pylab.savefig(self.absolut_path(plot_filename))
-        # pylab.legend()
-        # pylab.title("Title of Plot")
-        # pylab.xlabel("X Axis Label")
-        # pylab.ylabel("Y Axis Label")
-        pylab.close()
+    # def draw_plot(self):
+    #     self.logger.info("Save the Plot to file")
+    #     data_filename = "stats.txt"
+    #     plot_filename = "plot.png"
+    #     data = pylab.loadtxt(self.absolut_path(data_filename) , delimiter=',', dtype=int)
+    #     self.logger.info(data)
+    #     y_data = data[:, 0]
+    #     x_data = data[:, 1]
+    #     pylab.plot(x_data, y_data, '-')
+    #     # pylab.show()
+    #     pylab.savefig(self.absolut_path(plot_filename))
+    #     # pylab.legend()
+    #     # pylab.title("Title of Plot")
+    #     # pylab.xlabel("X Axis Label")
+    #     # pylab.ylabel("Y Axis Label")
+    #     pylab.close()
 
     @staticmethod
     def absolut_path(filename):
