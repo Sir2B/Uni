@@ -4,10 +4,18 @@
 import time
 import os
 from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoAlertPresentException
+
+# from ../../Bots/Telegram/Raborutzi import Raborutzi
 
 class OfmScraper(object):
     def __init__(self):
         self.driver = None
+        self.remaining_days = []
 
     def __enter__(self):
         self.open_browser()
@@ -16,12 +24,19 @@ class OfmScraper(object):
         pass
         # self.driver.close()
 
-    def open_browser(self):
-        # driver = webdriver.Firefox('D:\Portable\Firefox\FirefoxLoader.exe')
-        self.driver = webdriver.Chrome(r'D:\Portable\chromedriver_win32\chromedriver.exe')
+    def open_browser(self, browser="chrome"):
+        browser = browser.lower()
+        if browser == "firefox":
+            self.driver = webdriver.Firefox()
+            self.driver.implicitly_wait(10)
+        elif browser == "chrome":
+            self.driver = webdriver.Chrome()
 
     def open_ofm(self):
         self.driver.get('http://www.onlinefussballmanager.de/game')
+        element = WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.ID, "registergrafikbutton"))
+        )
 
     def login(self):
         self.driver.execute_script("javascript:register_show_login();")
@@ -34,11 +49,22 @@ class OfmScraper(object):
         username_form.send_keys(username)
         password_form.send_keys(password)
         username_form.submit()
+        element = WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.TAG_NAME, "frameset"))
+        )
 
-        login_button = login_form.find_element_by_id("logingrafikbutton")
-        login_button.click()
-
-        time.sleep(10)
+    def scrap_team_page(self):
+        self.driver.get("http://www.onlinefussballmanager.de/team/players.php")
+        element = WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.ID, "playerTable"))
+        )
+        table = self.driver.find_element_by_id("playerTable")
+        players = table.find_elements_by_css_selector("tr.odd") + table.find_elements_by_css_selector("tr.even")
+        for player in players:
+            days = int(player.find_elements_by_css_selector("td")[-2].text)
+            self.remaining_days.append(days)
+        if min(self.remaining_days) < 2:
+            print("Warning! Contract expires")
 
     @staticmethod
     def get_credentials():
@@ -56,19 +82,19 @@ class OfmScraper(object):
 
 
 
-#     @staticmethod
-#     def get_config():
-#         login = ""
-#         password = ""
-#         with open('config.cfg', 'r') as conf_file:
-#             lines = conf_file.read().splitlines()
-#             for line in lines:
-#                 words = line.split()
-#                 if 'login' in words[0]:
-#                     login = words[1]
-#                 elif 'password' in words[0]:
-#                     password = words[1]
-#         return login, password
+    @staticmethod
+    def get_config():
+        login = ""
+        password = ""
+        with open('config.cfg', 'r') as conf_file:
+            lines = conf_file.read().splitlines()
+            for line in lines:
+                words = line.split()
+                if 'login' in words[0]:
+                    login = words[1]
+                elif 'password' in words[0]:
+                    password = words[1]
+        return login, password
 
     @staticmethod
     def save_page(self, filename):
@@ -111,6 +137,7 @@ class OfmScraper(object):
 
 if __name__ == "__main__":
     scraper = OfmScraper()
-    scraper.open_browser()
+    scraper.open_browser("firefox")
     scraper.open_ofm()
     scraper.login()
+    scraper.scrap_team_page()
