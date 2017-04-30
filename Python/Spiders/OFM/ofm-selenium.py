@@ -10,12 +10,14 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 
-# from ../../Bots/Telegram/Raborutzi import Raborutzi
+from Telegram import Raborutzi
 
 class OfmScraper(object):
     def __init__(self):
         self.driver = None
         self.remaining_days = []
+        self.bot = Raborutzi(credentials_path='../../Bots/Telegram/.credentials')
+        self.server = "www"
 
     def __enter__(self):
         self.open_browser()
@@ -33,13 +35,16 @@ class OfmScraper(object):
             self.driver = webdriver.Chrome()
 
     def open_ofm(self):
-        self.driver.get('http://www.onlinefussballmanager.de/game')
+        self.driver.get('http://www.onlinefussballmanager.de/')
         element = WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.ID, "registergrafikbutton"))
         )
 
     def login(self):
         self.driver.execute_script("javascript:register_show_login();")
+        element = WebDriverWait(self.driver, 10).until(
+            EC.visibility_of_element_located((By.ID, "logingrafikbutton"))
+        )
 
         login_form = self.driver.find_element_by_id("login_form")
         username_form = login_form.find_element_by_id("login")
@@ -52,9 +57,12 @@ class OfmScraper(object):
         element = WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.TAG_NAME, "frameset"))
         )
+        server = self.driver.current_url.split('//')[1].split('.')[0]
+        self.server = server
 
     def scrap_team_page(self):
-        self.driver.get("http://www.onlinefussballmanager.de/team/players.php")
+        self.driver.get("http://{0}.onlinefussballmanager.de/team/players.php".format(self.server))
+
         element = WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.ID, "playerTable"))
         )
@@ -64,7 +72,27 @@ class OfmScraper(object):
             days = int(player.find_elements_by_css_selector("td")[-2].text)
             self.remaining_days.append(days)
         if min(self.remaining_days) < 2:
-            print("Warning! Contract expires")
+            warning_text = "Warning! Contract expires"
+            self.bot.send(warning_text)
+            print(warning_text)
+
+    def change_server(self):
+        self.driver.get("http://{0}.onlinefussballmanager.de/game".format(self.server))
+        head_frame = self.driver.find_element_by_css_selector("frame[name='head']")
+        self.driver.switch_to.frame(head_frame)
+        change_button = self.driver.find_element_by_css_selector("a.changeServerToTwo")
+        change_button.click()
+        self.driver.switch_to_default_content()
+        self.server = "server2"
+        WebDriverWait(self.driver, 10).until(
+            lambda x: self.server in x.current_url
+        )
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.TAG_NAME, "frameset"))
+        )
+        
+        print("test")
+
 
     @staticmethod
     def get_credentials():
@@ -140,4 +168,6 @@ if __name__ == "__main__":
     scraper.open_browser("firefox")
     scraper.open_ofm()
     scraper.login()
+    scraper.scrap_team_page()
+    scraper.change_server()
     scraper.scrap_team_page()

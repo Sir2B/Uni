@@ -3,8 +3,8 @@ import telebot
 from credentials import Credentials
 
 class Raborutzi(object):
-    def __init__(self):
-        self.credentials = Credentials('.credentials')
+    def __init__(self, credentials_path='.credentials'):
+        self.credentials = Credentials(credentials_path)
         self.bot = telebot.TeleBot(self.credentials.TOKEN)
         self.bot.send_message(self.credentials.USERID, "Bot started.")
 
