@@ -60,7 +60,7 @@ class SauspielSpider(scrapy.Spider):
     def get_credentials():
         login = ""
         password = ""
-        with open('credentials', 'r') as f:
+        with open('.credentials', 'r') as f:
             lines = f.read().splitlines() 
             for line in lines:
                 l = line.split()

@@ -70,7 +70,7 @@ class OfmScraper(object):
     def get_credentials():
         login = ""
         password = ""
-        with open('credentials', 'r') as cred_file:
+        with open('.credentials', 'r') as cred_file:
             lines = cred_file.read().splitlines()
             for line in lines:
                 words = line.split()
