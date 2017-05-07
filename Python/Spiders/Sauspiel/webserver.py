@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # webserver.py - a webserver which draws stats of sauspiel
-
+import mimetypes
 import BaseHTTPServer
 import matplotlib
 # Force matplotlib to not use any Xwindows backend.
@@ -21,6 +21,16 @@ class SauspielServer(BaseHTTPServer.BaseHTTPRequestHandler):
         path_list = path.split('/')
         if path_list[1] == 'favicon.ico':
             self.send_file('Stats.ico')
+            return
+        if path_list[1].startswith('stats.txt'):
+            params = path_list[1].split('?')
+            if len(params) == 1:
+                self.send_file(params[0])
+            else:
+                self.send_file(params[0], last_lines=int(params[1]))
+            return
+        if path_list[1].startswith('graph'):
+            self.send_file('/'.join(path_list[1:]))
             return
         if len(path_list) == 1:
             self.send_error()
@@ -94,12 +104,20 @@ class SauspielServer(BaseHTTPServer.BaseHTTPRequestHandler):
         pylab.close()
         return IMAGE_BUFFER
 
-    def send_file(self, filepath):
+    def send_file(self, filepath, last_lines=-1):
         self.send_response(200)
-        self.send_header("Content-type", "image/png")
+        filepath = filepath.split('?')[0]
+        content_type = mimetypes.guess_type(filepath)[0]
+
+        self.send_header("Content-type", content_type)
         self.end_headers()
         image_file = open(filepath)
-        self.wfile.write(image_file.read())
+        if last_lines == -1:
+            self.wfile.write(image_file.read())
+        else:
+            lines = image_file.read().split('\n')
+            for line in lines[-last_lines:]:
+                self.wfile.write(line + '\n')
 
 def run_server(port=9090):
     server_class = BaseHTTPServer.HTTPServer
@@ -110,5 +128,9 @@ def run_server(port=9090):
     server.serve_forever()
 
 if __name__ == '__main__':
-    os.chdir('/home/pi/sauspiel/')
+    path = '/home/pi/sauspiel/'
+    try:
+        os.chdir(path)
+    except OSError:
+        print('Cannot change to folder: {0}'.format(path))
     run_server(port=50)

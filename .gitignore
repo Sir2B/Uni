@@ -22,4 +22,5 @@ dist
 *.project
 .metadata/
 temp/
-credentials
+*.credentials
+node_modules/
