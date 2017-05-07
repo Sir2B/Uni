@@ -1,71 +1,57 @@
-
-/* Resets */
-.graph-container,
-.graph-container div,
-.graph-container a,
-.graph-container span {
-	margin: 0 auto;
-	padding: 0;
-}
-
 /* Gradinet and Rounded Corners */
 .graph-container, #tooltip{
-	background: #ffffff;
-	background: -moz-linear-gradient(top,  #ffffff 0%, #f9f9f9 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f9f9f9));
-	background: -webkit-linear-gradient(top,  #ffffff 0%,#f9f9f9 100%);
-	background: -o-linear-gradient(top,  #ffffff 0%,#f9f9f9 100%);
-	background: -ms-linear-gradient(top,  #ffffff 0%,#f9f9f9 100%);
-	background: linear-gradient(to bottom,  #ffffff 0%,#f9f9f9 100%);
+    background: #ffffff;
+    background: -moz-linear-gradient(top,  #ffffff 0%, #f9f9f9 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f9f9f9));
+    background: -webkit-linear-gradient(top,  #ffffff 0%,#f9f9f9 100%);
+    background: -o-linear-gradient(top,  #ffffff 0%,#f9f9f9 100%);
+    background: -ms-linear-gradient(top,  #ffffff 0%,#f9f9f9 100%);
+    background: linear-gradient(to bottom,  #ffffff 0%,#f9f9f9 100%);
 
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
 }
 
 /*  Graph Container */
 .graph-container {
-	position: relative;
-	width: 800px;
-	height: 500px;
-	padding: 20px;
-	
-	-webkit-box-shadow: 0px 1px 2px rgba(0,0,0,.1);
-	-moz-box-shadow: 0px 1px 2px rgba(0,0,0,.1);
-	box-shadow: 0px 1px 2px rgba(0,0,0,.1);
+    position: absolute;
+    width: 80%;
+    height: 70%;
+    padding: 3%;
+    margin: auto;
+    top: 0; left: 0; bottom: 0; right: 0;
 }
 
 .graph-container > div {
-	position: absolute;
-	width: inherit;
-	height: inherit;
-	top: 10px;
-	left: 25px;
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 
 /* Text Styles */
 #tooltip {
-	height: 20px;
-	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	font-weight: bold;
-	font-size: 12px;
-	line-height: 20px;
-	color: #646464;
+    height: 20px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 20px;
+    color: #646464;
 }
 
 .tickLabel {
-	font-weight: bold;
-	font-size: 12px;
-	color: #666;
-	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    color: #666;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 /* Tooltip */
 #tooltip {
-	position: absolute;
-	display: none;
-	padding: 5px 10px;
-	border: 1px solid #e1e1e1;
+    position: absolute;
+    display: none;
+    padding: 5px 10px;
+    border: 1px solid #e1e1e1;
 }
 
 /* Hide the First and Last Y Label */
@@ -74,7 +60,7 @@
 
 /* Clear Floats */
 .graph-container:before, .graph-container:after {
-	content: '';
-	display: block;
-	clear: both;
+    content: '';
+    display: block;
+    clear: both;
 }
