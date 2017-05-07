@@ -97,23 +97,23 @@ $(document).ready(function () {
     // });
 
     // Graph Toggle ############################################
-    $('#graph-bars').hide();
+    // $('#graph-bars').hide();
 
-    $('#lines').on('click', function (e) {
-        $('#bars').removeClass('active');
-        $('#graph-bars').fadeOut();
-        $(this).addClass('active');
-        $('#graph-lines').fadeIn();
-        e.preventDefault();
-    });
+    // $('#lines').on('click', function (e) {
+    //     $('#bars').removeClass('active');
+    //     $('#graph-bars').fadeOut();
+    //     $(this).addClass('active');
+    //     $('#graph-lines').fadeIn();
+    //     e.preventDefault();
+    // });
 
-    $('#bars').on('click', function (e) {
-        $('#lines').removeClass('active');
-        $('#graph-lines').fadeOut();
-        $(this).addClass('active');
-        $('#graph-bars').fadeIn().removeClass('hidden');
-        e.preventDefault();
-    });
+    // $('#bars').on('click', function (e) {
+    //     $('#lines').removeClass('active');
+    //     $('#graph-lines').fadeOut();
+    //     $(this).addClass('active');
+    //     $('#graph-bars').fadeIn().removeClass('hidden');
+    //     e.preventDefault();
+    // });
 
     // Tooltip #################################################
     function showTooltip(x, y, contents) {

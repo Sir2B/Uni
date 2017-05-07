@@ -1,54 +1,31 @@
-
 <html>
-
 <head>
-
 	<meta charset="utf-8">
-
 	<title>Sauspiel Stats</title>
-
-	<!--<style>
+	<style>
 	html,body{
-		height:100%}
+		height:100%
+		}
 	body{
-		background:#f2f2f2 url('img/header.png') no-repeat center top;
-		min-height: 700px;
-		-webkit-box-shadow:inset 0 0 0 5px #f2f2f2,inset 0 0 0 10px #90c0aa,inset 0 0 0 15px #f2f2f2;
-		-mox-box-shadow:inset 0 0 0 5px #f2f2f2,inset 0 0 0 10px #90c0aa,inset 0 0 0 15px #f2f2f2;
-		box-shadow:inset 0 0 0 5px #f2f2f2,inset 0 0 0 10px #90c0aa,inset 0 0 0 15px #f2f2f2;margin:0}
-	#graph-wrapper{
+		background:#555555 no-repeat center top;
+		}
+	#graph-container{
 		width:640px;
 		margin:0 auto;
-		padding-top:275px}
-	</style>-->
+		}
+	</style>
 
 	<link rel="stylesheet" href="graph.css">
-<meta name="robots" content="noindex,follow" />
+	<meta name="robots" content="noindex,follow" />
 </head>
-
 <body>
-
-<!-- Graph HTML -->
-<!--<div id="graph-wrapper">-->
-	<!--<div class="graph-info">
-		<a href="javascript:void(0)" class="visitors">Visitors</a>
-		<a href="javascript:void(0)" class="returning">Returning Visitors</a>
-
-		<a href="#" id="bars"><span></span></a>
-		<a href="#" id="lines" class="active"><span></span></a>
-	</div>-->
-
 	<div class="graph-container">
 		<div id="graph-lines"></div>
-		<div id="graph-bars"></div>
 	</div>
-<!--</div>-->
-<!-- end Graph HTML -->
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script src="jquery.flot.min.js"></script>
-<script src="plot_stats.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="jquery.flot.min.js"></script>
+	<script src="plot_stats.js"></script>
 
 </body>
-
 </html>
