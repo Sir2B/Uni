@@ -110,6 +110,7 @@ class SauspielServer(BaseHTTPServer.BaseHTTPRequestHandler):
         content_type = mimetypes.guess_type(filepath)[0]
 
         self.send_header("Content-type", content_type)
+        self.send_header("Cache-Control", "public")
         self.end_headers()
         image_file = open(filepath)
         if last_lines == -1:
