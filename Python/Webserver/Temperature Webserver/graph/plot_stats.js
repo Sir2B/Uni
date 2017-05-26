@@ -105,7 +105,7 @@ $(document).ready(function () {
                     var date = timestamp.getDate() + '.' + timestamp.getMonth() + '.' + timestamp.getFullYear()
                     var time = timestamp.getHours() + ':' + timestamp.getMinutes() + ':' + timestamp.getSeconds()
                     var y = this_datapoint[1];
-                    tooltip_text += y + ' °C on ' + date + ' at ' + time;
+                    tooltip_text += y.toFixed(2) + ' °C on ' + date + ' at ' + time;
                 }
                 showTooltip(item.pageX, item.pageY, tooltip_text);
             }
