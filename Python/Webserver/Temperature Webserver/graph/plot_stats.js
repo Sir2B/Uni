@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
     // var games = -1;
     var url = window.location.search.substring(1);
@@ -57,33 +56,42 @@ $(document).ready(function () {
     var graphData = [{
         data: stats1,
         color: '#71c73e',
-        points: { radius: 2 },
+        points: {
+            radius: 2
+        },
         yaxis: 1,
         unit: '°C'
     }, {
         data: stats2,
         color: '#11c73e',
-        points: { radius: 2 },
+        points: {
+            radius: 2
+        },
         yaxis: 1,
         unit: '°C'
     }, {
         data: stats3,
         color: '#3ec744',
-        points: { radius: 2 },
+        points: {
+            radius: 2
+        },
         yaxis: 1,
         unit: '°C'
     }, {
         data: stats4,
         color: '#4286f4',
-        points: { radius: 3 },
-        lines: { radius: 0.1 },
+        points: {
+            radius: 3
+        },
+        lines: {
+            radius: 0.1
+        },
         yaxis: 2,
         unit: '%'
-    }
-    ];
+    }];
 
     var lastDay = null;
-    
+
     // Lines Graph #############################################
     $.plot($('#graph-lines'), graphData, {
         series: {
@@ -105,37 +113,38 @@ $(document).ready(function () {
         xaxis: {
             mode: "time",
             tickFormatter: function formatter(val, axis) {
-              var d = new Date(val);
-              var rV = null;          
-              if (lastDay == null || d.getDay() == lastDay.getDay()) //lastDay is a global, set to null outside of plot call
-              {
-                rV = $.plot.formatDate(d, "%H:%M"); // first date return time
-              }
-              else
-              {
-                rV = $.plot.formatDate(d, "<b>%d.%m.%y</br>%H:%M</b>"); // return different format
-              }
-              lastDay = d; 
-              return rV;
+                var d = new Date(val);
+                var rV = null;
+                if (lastDay == null || d.getDay() == lastDay.getDay()) //lastDay is a global, set to null outside of plot call
+                {
+                    rV = $.plot.formatDate(d, "%H:%M"); // first date return time
+                } else {
+                    rV = $.plot.formatDate(d, "<b>%d.%m.%y</br>%H:%M</b>"); // return different format
+                }
+                lastDay = d;
+                return rV;
             }
         },
         yaxis: {
-          tickFormatter: function formatter(val, axis) {
-              return `${val} ${axis.options.unit}`;
+            tickFormatter: function formatter(val, axis) {
+                return `${val} ${axis.options.unit}`;
             },
-          font: {
-            size: 12,
-            family: 'Arial'
-          },
-          width: '100px'
+            font: {
+                size: 12,
+                family: 'Arial'
+            },
+            width: '100px'
         },
-        yaxes: [
-          { position: "left",
-            color: "#11c73e",
-            unit: '°C' },
-          { position: "right",
-            color: '#4286f4',
-            unit: '%' }
+        yaxes: [{
+                position: "left",
+                color: "#11c73e",
+                unit: '°C'
+            },
+            {
+                position: "right",
+                color: '#4286f4',
+                unit: '%'
+            }
         ]
         // ,
         // yaxis: {

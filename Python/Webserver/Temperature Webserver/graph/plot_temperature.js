@@ -64,7 +64,12 @@ $(function () {
 		// extends to infinity upwards and downwards
 
 		do {
-			markings.push({ xaxis: { from: i, to: i + 2 * 24 * 60 * 60 * 1000 } });
+			markings.push({
+				xaxis: {
+					from: i,
+					to: i + 2 * 24 * 60 * 60 * 1000
+				}
+			});
 			i += 7 * 24 * 60 * 60 * 1000;
 		} while (i < axes.xaxis.max);
 
@@ -79,8 +84,7 @@ $(function () {
 		data: stats2,
 		color: '#11773e',
 		// label: "Temperature 2:  NaN  °C"
-	}
-	];
+	}];
 
 	var options = {
 		xaxis: {
