@@ -25,7 +25,7 @@ class TemperatureServer(BaseHTTPServer.BaseHTTPRequestHandler):
             if len(params) == 1:
                 self.send_stats(params[0])
             else:
-                self.send_stats(params[0], last_lines=int(params[1]))
+                self.send_stats(params[0], params[1])
             return
         if path_list[1].startswith('graph'):
             self.send_file('/'.join(path_list[1:]))
@@ -51,15 +51,27 @@ class TemperatureServer(BaseHTTPServer.BaseHTTPRequestHandler):
         with open('stats.txt') as s_file:
             self.lines = s_file.readlines()
 
-    def send_stats(self, filepath, last_lines=-1):
+    def send_stats(self, filepath, params=None):
         self.send_response(200)
         self.send_header("Content-type", 'text')
         self.end_headers()
-        start_stop, names, data = rrdtool.fetch('temperature.rrd', 'AVERAGE', '-s', 'now - 1 week', '-e','now')
+        
+        if params:
+          rrdtool_params = []
+          for param in params.split('&'):
+            splitted = param.split('=')
+            rrdtool_params.append('--' + splitted[0])
+            if len(splitted) == 2:
+              rrdtool_params.append(splitted[1])
+          print(rrdtool_params)
+          start_stop, names, data = rrdtool.fetch('values.rrd', 'AVERAGE', *rrdtool_params)
+        else:
+          start_stop, names, data = rrdtool.fetch('values.rrd', 'AVERAGE', 
+                                                  '--start', 'end-2days')
         
         for index in xrange(len(data)):
             time = start_stop[0] + index * start_stop[2]
-            self.wfile.write("{}, {}, {}".format(time, data[index][0], data[index][1]))
+            self.wfile.write("{}, {}, {}, {}, {}".format(time, data[index][0], data[index][1], data[index][2], data[index][3]))
             self.wfile.write('\n')
         
 

@@ -39,11 +39,16 @@
     color: #646464;
 }
 
-.tickLabel {
-    font-weight: bold;
-    font-size: 12px;
-    color: #666;
+/*.tickLabel {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}*/
+
+.yaxisLabel {
+    color: #4286f4;
+}
+
+.y2axisLabel {
+    color: #11c73e;
 }
 
 /* Tooltip */
