@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # webserver.py - a webserver which draws the temperature
 import mimetypes
-import BaseHTTPServer
+import http.server
 
 import io
 import os
@@ -12,7 +12,7 @@ IMAGE_BUFFER = io.BytesIO()
 LAST_MODIFIED_DATE = None
 LAST_CALL = None
 
-class TemperatureServer(BaseHTTPServer.BaseHTTPRequestHandler):
+class TemperatureServer(http.server.BaseHTTPRequestHandler):
     def do_GET(self):
         path = self.path
 
@@ -69,10 +69,9 @@ class TemperatureServer(BaseHTTPServer.BaseHTTPRequestHandler):
           start_stop, names, data = rrdtool.fetch('values.rrd', 'AVERAGE', 
                                                   '--start', 'end-2days')
         
-        for index in xrange(len(data)):
+        for index in range(len(data)):
             time = start_stop[0] + index * start_stop[2]
-            self.wfile.write("{}, {}, {}, {}, {}".format(time, data[index][0], data[index][1], data[index][2], data[index][3]))
-            self.wfile.write('\n')
+            self.wfile.write(bytes("{}, {}, {}, {}, {}\n".format(time, data[index][0], data[index][1], data[index][2], data[index][3]), 'utf-8'))
         
 
     def send_file(self, filepath, last_lines=-1):
@@ -83,7 +82,7 @@ class TemperatureServer(BaseHTTPServer.BaseHTTPRequestHandler):
         self.send_header("Content-type", content_type)
         self.send_header("Cache-Control", "public")
         self.end_headers()
-        image_file = open(filepath)
+        image_file = open(filepath, 'rb')
         if last_lines == -1:
             self.wfile.write(image_file.read())
         else:
@@ -92,7 +91,7 @@ class TemperatureServer(BaseHTTPServer.BaseHTTPRequestHandler):
                 self.wfile.write(line + '\n')
 
 def run_server(port=9090):
-    server_class = BaseHTTPServer.HTTPServer
+    server_class = http.server.HTTPServer
     server_address = ('', port)
     handler_class = TemperatureServer
 
@@ -100,9 +99,9 @@ def run_server(port=9090):
     server.serve_forever()
 
 if __name__ == '__main__':
-    path = '/home/osmc/'
+    path = '/home/pi/temperature-webserver'
     try:
         os.chdir(path)
     except OSError:
-        print('Cannot change to folder: {0}'.format(path))
+        print(('Cannot change to folder: {0}'.format(path)))
     run_server(port=50)
