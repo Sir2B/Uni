@@ -60,6 +60,7 @@ class Player:
         self.vel = Point(vx, vy)
         if lastCheckpoint != self.nextCheckpointId:
             self.totalCheckpoints += 1
+        self.glide_mode = False
 
     def determine_target(self):
         # nextPos = self.pos + self.vel * 2.5
@@ -67,7 +68,7 @@ class Player:
         self.thrust = 100
         for point in range(35):
             if (self.pos + self.vel * point * 0.1).distance(checkpoints[self.nextCheckpointId]) < 600:
-                self.thrust = "GLIDE"
+                self.glide_mode = True
                 self.nextCheckpointId += 1
                 if self.nextCheckpointId == checkpointCount:
                     self.nextCheckpointId = 0
@@ -85,7 +86,7 @@ class Player:
 
     def polish_target(self):
         print(f"target {self.target}", file=sys.stderr)
-        if self.thrust == "GLIDE":
+        if self.glide_mode:
             return
         correctur_fac = 0.75
         new_x = self.target.getX()
@@ -107,18 +108,19 @@ class Player:
         print(f"new target {self.target}", file=sys.stderr)
 
     def determine_thrust(self, firstRound = False):
-        if firstRound and self.pos.distance(self.target) > 4000:
-            print(f"first round boost", file=sys.stderr)
-            self.thrust = "BOOST"
-            return
-        if not self.boostUsed and self.pos.distance(self.target) > 8000:
-            print(f"normal boost", file=sys.stderr)
-            self.thrust = "BOOST"
-            return
-        if not self.boostUsed and self.totalCheckpoints > checkpointCount and self.pos.distance(self.target) > 4000:
-            print(f"second round boost", file=sys.stderr)
-            self.thrust = "BOOST"
-            return
+        if not self.glide_mode:
+            if firstRound and self.pos.distance(self.target) > 4000:
+                print(f"first round boost", file=sys.stderr)
+                self.thrust = "BOOST"
+                return
+            if not self.boostUsed and self.pos.distance(self.target) > 8000:
+                print(f"normal boost", file=sys.stderr)
+                self.thrust = "BOOST"
+                return
+            if not self.boostUsed and self.totalCheckpoints > checkpointCount and self.pos.distance(self.target) > 4000:
+                print(f"second round boost", file=sys.stderr)
+                self.thrust = "BOOST"
+                return
 
         desired_angle = (self.target - self.pos).angle()
         diff_angle = abs(desired_angle - self.angle)
