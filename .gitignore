@@ -25,3 +25,4 @@ temp/
 *.credentials
 node_modules/
 Thumbs\.db
+.vscode
