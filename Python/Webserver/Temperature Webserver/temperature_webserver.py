@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # webserver.py - a webserver which draws the temperature
 import mimetypes
 import http.server

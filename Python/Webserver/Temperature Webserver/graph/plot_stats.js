@@ -23,22 +23,24 @@ $(document).ready(function () {
                     var temp3 = Number(values[3]);
                     var temp4 = Number(values[4]);
                     var date = Number(values[0]) * 1000;
+                    var temps = [temp1, temp2, temp3];
+                    var avg_temp = temps.reduce((x,y)=>x+y) / temps.filter(Number).length
 
-                    if (!isNaN(temp1)) {
-                        stats1.push([date, temp1]);
-                        min_stat = Math.min(min_stat, temp1);
-                        max_stat = Math.max(max_stat, temp1);
+                    if (!isNaN(avg_temp)) {
+                        stats1.push([date, avg_temp]);
+                        min_stat = Math.min(min_stat, avg_temp);
+                        max_stat = Math.max(max_stat, avg_temp);
                     }
-                    if (!isNaN(temp2)) {
-                        stats2.push([date, temp2]);
-                        min_stat = Math.min(min_stat, temp2);
-                        max_stat = Math.max(max_stat, temp2);
-                    }
-                    if (!isNaN(temp3)) {
-                        stats3.push([date, temp3]);
-                        min_stat = Math.min(min_stat, temp3);
-                        max_stat = Math.max(max_stat, temp3);
-                    }
+                    // if (!isNaN(temp2)) {
+                    //     stats2.push([date, temp2]);
+                    //     min_stat = Math.min(min_stat, temp2);
+                    //     max_stat = Math.max(max_stat, temp2);
+                    // }
+                    // if (!isNaN(temp3)) {
+                    //     stats3.push([date, temp3]);
+                    //     min_stat = Math.min(min_stat, temp3);
+                    //     max_stat = Math.max(max_stat, temp3);
+                    // }
                     if (!isNaN(temp4)) {
                         stats4.push([date, temp4]);
                         min_stat = Math.min(min_stat, temp4);
